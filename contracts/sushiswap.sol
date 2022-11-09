@@ -2,14 +2,15 @@
 pragma solidity >=0.6.6;                                 
 
 // imported required interfaces      
-import "@openzeppelin/contracts/access/Ownable.sol";                                                                      
-import "@uniswap/v2-periphery/contracts/libraries/UniswapV2Library.sol";
-import "@uniswap/v3-periphery/contracts/libraries/TransferHelper.sol";
-import "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router01.sol";
-import "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol";
-import "@uniswap/v2-core/contracts/interfaces/IUniswapV2Factory.sol";
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
+import "@openzeppelin/contracts/access/Ownable.sol";  
+import "hardhat/console.sol";                                                                                
+import "./libraries/UniswapV2Library.sol";
+import  "./libraries/TransferHelper.sol";
+import "./interfaces/IUniswapV2Router01.sol";
+import "./interfaces/IUniswapV2Router02.sol";
+import "./interfaces/IUniswapV2Factory.sol";
+import "./interfaces/IERC20.sol";
 
 
 contract WEB3AM_SUSHISwap is Ownable {
@@ -63,7 +64,5 @@ contract WEB3AM_SUSHISwap is Ownable {
         // emiting event swap info of amnound received in n return after swap
         emit swap_info(msg.sender,amountReceived);
         console.log("amountRecieved", amountReceived);
-
-        return amountReceived;
     }
 }

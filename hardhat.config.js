@@ -11,9 +11,13 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   }
 });
 
+
+// While deploying contract put your private key here
+const Private_Key = "PUT_YOUR_PRIVATE_KEY_OF_WALLET"; // Private key of Ashutosh Wallet
+
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
-
+1
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
@@ -27,7 +31,8 @@ module.exports = {
       { version: "0.7.6" } ,
       { version: "0.8.0" } ,
       { version: "0.7.5" } ,
-      { version: "0.7.0" } 
+      { version: "0.7.0" } ,
+      { version: "0.6.2" }
     ],
     overrides: {
       "@uniswap/v3-periphery/contracts/libraries/PoolAddress.sol": {
@@ -43,5 +48,10 @@ module.exports = {
         // url: "https://polygon-mainnet.g.alchemy.com/v2/zF-EZv66IP0tcXh9wNv4s6VmxSmW9RMN",
       },
     },
+    // avalanche rpc URL for deployment
+    avalanche :{
+        url : "https://api.avax.network/ext/bc/C/rpc",
+        accounts: [`0x${Private_Key}`]
+    }
   },
 };
